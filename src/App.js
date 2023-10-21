@@ -1,24 +1,58 @@
-import logo from './logo.svg';
-import './App.css';
+import { ToastContainer } from 'react-toastify';
+import { CreatePost, Layout } from './components';
+import { Authorization, Edit, Feed, Home, Profile, Settings } from './pages';
+import { Routes, Route } from 'react-router-dom';
+import PrivateRoutes from 'hoc/PrivateRoute';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Routes>
+
+
+        <Route path='/' element={<Layout />}>
+
+          <Route index element={<CreatePost />} />
+
+          <Route path=':profileId' element={<Profile />} />
+
+          <Route
+            path='edit'
+            element={
+              <PrivateRoutes>
+                <Edit />
+              </PrivateRoutes>} />
+
+          <Route
+            path='settings'
+            element={
+              <PrivateRoutes>
+                <Settings />
+              </PrivateRoutes>} />
+
+          <Route path='/feed' element={<Feed />} />
+
+        </Route>
+
+
+        <Route path='/auth' element={<Authorization />} />
+
+
+      </Routes>
+      <ToastContainer
+        position='top-right'
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme='light'
+      />
+    </>
   );
 }
 
