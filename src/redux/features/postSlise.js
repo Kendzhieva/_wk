@@ -1,5 +1,5 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit';
-import instance from 'assets/configs/instance.js';
+import instance from 'assets/configs/instance';
 
 export const createPost = createAsyncThunk(
     'posts/create',

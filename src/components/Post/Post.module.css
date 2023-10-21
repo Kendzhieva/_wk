@@ -58,3 +58,23 @@
 .cover{
     border-radius: 5px;
 }
+
+.uploads {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px;
+}
+
+.left , .right {
+  display: flex;
+  gap: 10px;
+}
+
+.upload {
+  display: flex;
+  gap: 6px;
+}
+
+.upload  p{
+color: #626D7A;
+}

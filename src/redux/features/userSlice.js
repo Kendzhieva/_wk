@@ -19,7 +19,7 @@ export const loginUser = createAsyncThunk(
   async (data, { rejectWithValue }) => {
     try {
       const { saveSession, ...userData } = data;
-      const response = await instance.post('login', userData,);
+      const response = await instance.post('http://localhost:3333/login', userData,);
       return { userResData: response.data, saveSession };
     } catch (error) {
       return rejectWithValue(error.response.data || error.message);

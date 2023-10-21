@@ -1,12 +1,13 @@
 import styles from './Post.module.css'
 import React, { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { setLikePost } from 'redux/features/postSlise';
 
 //icon
 import { IoIosArrowDown } from 'react-icons/io'
 import { GoComment, GoHeart, GoHeartFill } from 'react-icons/go'
 import { PiShareFat } from 'react-icons/pi'
-import { useDispatch, useSelector } from 'react-redux';
-import { setLikePost } from 'redux/features/postSlise';
+import { FaEye } from 'react-icons/fa';
 
 
 
@@ -16,10 +17,12 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
   const { user } = useSelector((state) => state.user)
 
   const [liked, setLiked] = useState(likes.some(item => item === user._id))
+  const [likeNum, setLikeNum] = useState(likes.length)
 
   const handleClickLike = () => {
     dispatch(setLikePost({ postId: _id })).then(() => {
       setLiked(!liked)
+      setLikeNum(liked ? likeNum - 1 : likeNum + 1)
     })
   }
 
@@ -59,22 +62,30 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
       </section>
 
       <section>
-        <div>
-          <div onClick={handleClickLike}>
-            {liked ? <GoHeartFill /> : <GoHeart />}
-            <p>{likes.length}</p>
+        <div className={styles.uploads}>
+          <div className={styles.left}>
+            <div className={styles.upload} onClick={handleClickLike}>
+              {liked ? <GoHeartFill color='#818C99' /> : <GoHeart color='#818C99' />}
+              <p>{likeNum}</p>
+            </div>
+            <div className={styles.upload}>
+              <GoComment color='#818C99' />
+              <p>12</p>
+            </div>
+            <div className={styles.upload}>
+              <PiShareFat color='#818C99' />
+              <p>11</p>
+            </div>
           </div>
-          <div>
-            <GoComment />
-            <p>12</p>
-          </div>
-          <div>
-            <PiShareFat />
-            <p>11</p>
-          </div>
-        </div>
-        <div>
 
+          <div className={styles.right}>
+            <div className={styles.upload}>
+              <FaEye color='#818C99' />
+              <p>3789</p>
+            </div></div>
+        </div>
+
+        <div>
         </div>
       </section>
     </article>
