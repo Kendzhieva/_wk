@@ -71,7 +71,7 @@ const Profile = () => {
 
           />
           <div className={style.info}>
-            <h2>{user.name} {user.surname}</h2>
+            <h2 className={style.name}>{user.name} {user.surname}</h2>
             <div className={style.fullInfo}>
 
             </div>
@@ -87,9 +87,10 @@ const Profile = () => {
                 <button
                   disabled={isProfileHasInFriends === 'pending'}
                   onClick={FriendRequestHandle}
+                  className={style.button}
                 >
                   {isProfileHasInFriends === 'non'
-                    ? ' Удвльть из друзей'
+                    ? ' Удaлить из друзей'
                     : isProfileHasInFriends === 'pending'
                       ? 'в ожидании'
                       : 'Дoбавить в друзья '}
