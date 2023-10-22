@@ -6,7 +6,7 @@ import { set } from 'react-hook-form';
 import uploadPhoto from 'utils/uploadPhoto';
 import useTextArea from 'hooks/useTextArea';
 import { useDispatch } from 'react-redux';
-import { createPost } from 'redux/features/postSlise';
+import { createPost } from 'redux/features/postSlice';
 
 
 function CreatePost() {

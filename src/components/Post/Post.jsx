@@ -1,7 +1,7 @@
 import styles from './Post.module.css'
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLikePost } from 'redux/features/postSlise';
+import { setLikePost } from 'redux/features/postSlice';
 
 //icon
 import { IoIosArrowDown } from 'react-icons/io'

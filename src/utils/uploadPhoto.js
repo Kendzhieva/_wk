@@ -2,7 +2,7 @@ import instance from "assets/configs/instance"
 
 const uploadPhoto = async (blobUrl) => {
     const formData = new FormData
-    formData.append('photo', blobUrl)
+    formData.append('file', blobUrl)
 
     const response = await instance.post('/upload', formData, {
         headers: {

@@ -1,7 +1,7 @@
 import Post from 'components/Post/Post';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getPosts } from 'redux/features/postSlise';
+import { getPosts } from 'redux/features/postSlice';
 
 function Feed() {
 
