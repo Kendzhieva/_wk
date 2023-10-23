@@ -5,6 +5,7 @@ import { getMyRequest, getUserByID, removeFriend, sendFriendRequest } from 'redu
 import style from './Profile.module.css'
 import { createPost } from 'redux/features/postSlice';
 import { toast } from 'react-toastify';
+import userAvatarPlaceholder from 'assets/image/user/userDefaultAvatar.png'
 
 const Profile = () => {
   const [isProfileHasInFriends, setIsProfileHasInFriends] = useState('non')
@@ -20,7 +21,7 @@ const Profile = () => {
     let friendRequest;
 
     dispatch(getMyRequest())
-      .then(({ payload }) => {
+      .then(({ payload = [] }) => {
         friendRequest = payload.find((request) =>
           request.senderId === authedUser._id &&
           request.receiverId === profileId
@@ -65,7 +66,7 @@ const Profile = () => {
         </div>
         <div className={style.profileHeader}>
           <img
-            src={user.avatar}
+            src={user.avatar || userAvatarPlaceholder}
             alt={`${user.name}`}
             className={style.avatar}
 
@@ -80,7 +81,7 @@ const Profile = () => {
             authedUser._id === profileId
               ?
               <div className={style.handlers}>
-                <button><Link to={'/edit'}>Редактировать</Link></button>
+                <button className={style.button}><Link to={'/edit'}>Редактировать</Link></button>
               </div>
               :
               <div className={style.handlers}>

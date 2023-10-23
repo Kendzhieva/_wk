@@ -56,7 +56,44 @@ export const setLikePost = createAsyncThunk(
 );
 
 
+export const getPostComments = createAsyncThunk(
+    'posts/get/comments',
+    async (postId, { rejectWithValue }) => {
+        try {
+            const accessToken = JSON.parse(localStorage.getItem("accessToken"))
+            const response = await instance.get(`comment?postId=${postId} `, {}, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            });
+            return response.data
+        } catch (error) {
+            return rejectWithValue(error.response.data || error.message);
+        }
+    }
+);
 
+export const addPostComment = createAsyncThunk(
+    'posts/add/comment',
+    async ({ postId, content }, { rejectWithValue }) => {
+        try {
+            const userId = JSON.parse(localStorage.getItem('user'))._id
+            const accessToken = JSON.parse(localStorage.getItem("accessToken"))
+            const response = await instance.post(`comment`, {
+                postId,
+                creatorId: userId,
+                content
+            }, {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`
+                }
+            });
+            return response.data
+        } catch (error) {
+            return rejectWithValue(error.response.data || error.message);
+        }
+    }
+);
 
 
 const postsSlice = createSlice({

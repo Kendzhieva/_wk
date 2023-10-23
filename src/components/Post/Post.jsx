@@ -8,6 +8,7 @@ import { IoIosArrowDown } from 'react-icons/io'
 import { GoComment, GoHeart, GoHeartFill } from 'react-icons/go'
 import { PiShareFat } from 'react-icons/pi'
 import { FaEye } from 'react-icons/fa';
+import PostComments from 'components/PostComments/PostComments';
 
 
 
@@ -18,12 +19,17 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
 
   const [liked, setLiked] = useState(likes.some(item => item === user._id))
   const [likeNum, setLikeNum] = useState(likes.length)
+  const [showComments, setShowComments] = useState(false)
 
   const handleClickLike = () => {
     dispatch(setLikePost({ postId: _id })).then(() => {
       setLiked(!liked)
       setLikeNum(liked ? likeNum - 1 : likeNum + 1)
     })
+  }
+
+  const handleShowComments = () => {
+    setShowComments((prev) => !prev)
   }
 
   return (
@@ -68,7 +74,7 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
               {liked ? <GoHeartFill color='#818C99' /> : <GoHeart color='#818C99' />}
               <p>{likeNum}</p>
             </div>
-            <div className={styles.upload}>
+            <div className={styles.upload} onClick={handleShowComments}>
               <GoComment color='#818C99' />
               <p>12</p>
             </div>
@@ -88,6 +94,8 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
         <div>
         </div>
       </section>
+
+      <PostComments showComments={showComments} postId={_id} />
     </article>
   );
 }

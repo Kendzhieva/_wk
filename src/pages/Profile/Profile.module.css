@@ -44,6 +44,7 @@
     margin-top: -46px;
     overflow: hidden;
     border-radius: 50%;
+    background-color: #fff;
     border: 3px solid var(--primary-color);
   }
   
@@ -72,7 +73,6 @@
   .button:hover{
     background-color: var(--secondary-color);
     color: #fff;
-    padding: 6px 7px;
   }
   
   
