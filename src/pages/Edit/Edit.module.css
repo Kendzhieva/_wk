@@ -61,13 +61,12 @@
   background-color: var(--primary-color);
   color: #fff;
   border-radius: 5px;
-  padding: 5px 6px;
+  padding: 6px 7px;
+
 }
 
 .info button:hover{
   background-color: var(--secondary-color);
-  color: #fff;
-  padding: 6px 7px;
 }
 
 .editable{

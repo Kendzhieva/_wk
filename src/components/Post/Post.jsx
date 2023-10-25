@@ -5,7 +5,8 @@ import { setLikePost } from 'redux/features/postSlice';
 
 //icon
 import { IoIosArrowDown } from 'react-icons/io'
-import { GoComment, GoHeart, GoHeartFill } from 'react-icons/go'
+import { GoHeart, GoHeartFill } from 'react-icons/go'
+import { FaRegCommentAlt, FaCommentAlt } from 'react-icons/fa'
 import { PiShareFat } from 'react-icons/pi'
 import { FaEye } from 'react-icons/fa';
 import PostComments from 'components/PostComments/PostComments';
@@ -75,7 +76,7 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
               <p>{likeNum}</p>
             </div>
             <div className={styles.upload} onClick={handleShowComments}>
-              <GoComment color='#818C99' />
+              {showComments ? <FaCommentAlt color='#818C99' /> : <FaRegCommentAlt color='#818C99' />}
               <p>12</p>
             </div>
             <div className={styles.upload}>

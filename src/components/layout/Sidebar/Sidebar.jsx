@@ -16,16 +16,17 @@ import { ReactComponent as VirusIcon } from 'assets/vectors/sidebar/virus.svg';
 //styles
 import styles from './Sidebar.module.css';
 import { MdOutlineKeyboardArrowDown } from 'react-icons/md';
+import { Link } from 'react-router-dom';
 
 const MenuItem = ({ text, link, icon: IconComponent, notice }) => {
   return (
     <li className={styles.menu__item}>
       {!!text ? (
-        <a href={link} className={styles.menu__link}>
+        <Link to={link} className={styles.menu__link}>
           <IconComponent />
           <p>{text}</p>
           {!!notice && <span className={styles.notice}>{notice}</span>}
-        </a>
+        </Link>
       ) : (
         <div className={styles.separator} />
       )}
@@ -37,13 +38,13 @@ const Sidebar = () => {
   const menuList = [
     {
       text: 'Моя страница',
-      link: '/',
+      link: '/edit',
       icon: HomeIcon,
       notice: 415,
     },
     {
       text: 'Новости',
-      link: '/',
+      link: '/feed',
       icon: NewsIcon,
       notice: 0,
     },
