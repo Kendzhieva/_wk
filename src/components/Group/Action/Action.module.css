@@ -1,0 +1,23 @@
+.menu {
+  background-color: #fff;
+  padding: 13px 16px;
+  border-radius: 5px;
+  box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
+}
+
+.menu_item{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 0;
+}
+
+.title{
+    font-size: 13px;
+    color: #626D7A;
+}
+
+.text{
+    font-size: 13px;
+    color: #3670B3;
+}

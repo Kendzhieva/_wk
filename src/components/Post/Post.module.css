@@ -3,10 +3,11 @@
     background-color: #fff;
     border-radius: 5px;
     border: 1px solid var(--border-color);
-    box-shadow: 0px -1px 0px 0px var(--border-shadow-color) inset;
+    box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
     display: flex;
     flex-direction: column;
     width: 100%;
+    margin-bottom: 10px;
 }
 
 .header {

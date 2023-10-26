@@ -1,0 +1,77 @@
+.basic {
+    background-color: #fff;
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
+
+  }
+  
+  .cover {
+    height: 147px;
+    background-color: var(--primary-color);
+    border-image: linear-gradient(
+        180deg  ,
+        transparent 0%,
+        var(--secondary-color) 100%
+      ),linear-gradient(
+          270deg,
+          transparent 0%,
+          var(--header-bg-color) 100%
+      )
+    ;
+  }
+  
+  .info {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 20px;
+    gap: 25px;
+  }
+  
+  .avatar {
+    background-color: #fff;
+    width: 75px;
+    height: 75px;
+    border-radius: 50%;
+    border: 3px solid var(--primary-color);
+  }
+  
+  .button{
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 24px;
+  }
+
+  .button_active{
+    background-color: var(--button-active-color);
+    color: var(--button-active-text-color);
+    border-radius: 5px;
+    padding: 7px 24px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+  }
+  
+  .button:hover{
+    background-color: var(--secondary-color);
+  }
+  
+  .editable{
+    width: 100%;
+    gap: 15px;
+    display: flex;
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  

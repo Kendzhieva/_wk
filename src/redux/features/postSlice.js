@@ -61,7 +61,7 @@ export const getPostComments = createAsyncThunk(
     async (postId, { rejectWithValue }) => {
         try {
             const accessToken = JSON.parse(localStorage.getItem("accessToken"))
-            const response = await instance.get(`comment?postId=${postId} `, {}, {
+            const response = await instance.get(`posts/comment/${postId} `, {}, {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
                 }

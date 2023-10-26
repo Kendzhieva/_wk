@@ -5,5 +5,6 @@ import Profile from './Profile/Profile';
 import Settings from './Settings/Settings';
 import Edit from './Edit/Edit';
 import Feed from './Feed/Feed'
+import Groups from './Groups/Groups'
 
-export { Authorization, Home, Community, Profile, Settings, Edit, Feed };
+export { Authorization, Home, Community, Profile, Settings, Edit, Feed, Groups };

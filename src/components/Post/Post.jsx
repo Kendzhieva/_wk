@@ -1,7 +1,7 @@
 import styles from './Post.module.css'
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { setLikePost } from 'redux/features/postSlice';
+import { getPostComments, setLikePost } from 'redux/features/postSlice';
 
 //icon
 import { IoIosArrowDown } from 'react-icons/io'
@@ -21,6 +21,17 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
   const [liked, setLiked] = useState(likes.some(item => item === user._id))
   const [likeNum, setLikeNum] = useState(likes.length)
   const [showComments, setShowComments] = useState(false)
+  const [comments, setComments] = useState([])
+
+
+  useEffect(() => {
+
+    dispatch(getPostComments(_id))
+      .then(({ payload }) => {
+        setComments(payload)
+      })
+
+  }, [])
 
   const handleClickLike = () => {
     dispatch(setLikePost({ postId: _id })).then(() => {
@@ -77,7 +88,7 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
             </div>
             <div className={styles.upload} onClick={handleShowComments}>
               {showComments ? <FaCommentAlt color='#818C99' /> : <FaRegCommentAlt color='#818C99' />}
-              <p>12</p>
+              <p>{comments.length}</p>
             </div>
             <div className={styles.upload}>
               <PiShareFat color='#818C99' />
@@ -96,7 +107,7 @@ function Post({ title, content, createdAt, creatorId, image, likes, _id }) {
         </div>
       </section>
 
-      <PostComments showComments={showComments} postId={_id} />
+      <PostComments showComments={showComments} comments={comments} setComments={setComments} postId={_id} />
     </article>
   );
 }

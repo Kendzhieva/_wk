@@ -9,22 +9,10 @@ import { addPostComment, getPostComments } from 'redux/features/postSlice';
 
 
 
-function PostComment({ showComments, postId }) {
+function PostComment({ showComments, postId, comments, setComments }) {
 
-  const [comments, setComments] = useState([])
   const [commentValue, setCommentValue] = useState('')
   const dispatch = useDispatch()
-
-  useEffect(() => {
-
-    if (showComments) {
-      dispatch(getPostComments(postId))
-        .then(({ payload }) => {
-          setComments(payload)
-        })
-    }
-
-  }, [showComments])
 
   const addComment = (e) => {
     e.preventDefault()

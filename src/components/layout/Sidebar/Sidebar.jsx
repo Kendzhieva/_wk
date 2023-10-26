@@ -62,7 +62,7 @@ const Sidebar = () => {
     },
     {
       text: 'Сообщества',
-      link: '/',
+      link: '/groups',
       icon: GroupsIcon,
       notice: 7,
     },
