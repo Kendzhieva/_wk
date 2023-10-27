@@ -7,6 +7,7 @@
   border-radius: 5px;
   margin-top: 13px;
   box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
+  border: 1px solid var(--border-shadow-color);
 }
 
 .title {
@@ -32,7 +33,7 @@
   border-radius: 5px;
   margin-top: 13px;
   box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
-
+  border: 1px solid var(--border-shadow-color);
 }
 
 .subscribers_menu {

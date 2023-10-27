@@ -1,0 +1,25 @@
+.links {
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid var(--border-shadow-color);
+  box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
+  padding:  20px;
+  margin-top: 13px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 15px;
+}
+
+.link{
+  gap: 5px;
+}
+
+.img{
+  width: 135px;
+  height: 92px;
+  border-radius: 2px;
+}
+
+.text{
+  font-size: 12.5px;
+}

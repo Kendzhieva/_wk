@@ -50,7 +50,7 @@ const Sidebar = () => {
     },
     {
       text: 'Сообщения',
-      link: '/',
+      link: '/chats',
       icon: MessagesIcon,
       notice: 34,
     },

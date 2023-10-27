@@ -3,7 +3,7 @@
     border-radius: 5px;
     overflow: hidden;
     box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
-
+    border: 1px solid var(--border-shadow-color);
   }
   
   .cover {

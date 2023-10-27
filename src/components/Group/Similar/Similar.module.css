@@ -1,0 +1,69 @@
+.similar {
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
+  padding:  21px;
+  gap: 4px;
+  margin-top: 13px;
+  border: 1px solid var(--border-shadow-color);
+}
+
+.info {
+  display: flex;
+  justify-content: space-between;
+}
+
+.title{
+    font-size: 13px;
+}
+
+.close {
+    font-size: 13px;
+    color: var(--link-color);
+}
+
+.groups {
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 12px;
+}
+
+.group {
+  padding: 16px 13px 13px 13px;
+  border: 2px solid var(--border-shadow-color);
+  border-radius: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.avatar {
+    width: 86px;
+    height: 86px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.name{
+    margin-top: 10px;
+    font-size: 13px;
+}
+
+.type {
+    font-size: 13px;
+    color: var(--grey-color);
+    margin: 3px 0 12px;
+}
+
+.button{
+    background-color: var(--primary-color);
+    color: #fff;
+    border-radius: 5px;
+    padding: 7px 24px;
+  }
+  
+  .button:hover{
+    background-color: var(--secondary-color);
+  }

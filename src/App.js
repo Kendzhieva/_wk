@@ -1,8 +1,9 @@
 import { ToastContainer } from 'react-toastify';
 import { CreatePost, Layout } from './components';
-import { Authorization, Edit, Feed, Groups, Home, Profile, Settings } from './pages';
+import { Authorization, Chats, Edit, Feed, Groups, Home, Profile, Settings } from './pages';
 import { Routes, Route } from 'react-router-dom';
 import PrivateRoutes from 'hoc/PrivateRoute';
+import Chat from 'pages/Chat/Chat';
 
 function App() {
 
@@ -32,8 +33,11 @@ function App() {
               </PrivateRoutes>} />
 
           <Route path='/feed' element={<Feed />} />
+
           <Route path='/groups' element={<Groups />} />
 
+          <Route path='/chats' element={<Chats />} />
+          <Route path='/chats/:id' element={<Chat />} />
         </Route>
 
 
