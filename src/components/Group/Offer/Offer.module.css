@@ -1,0 +1,51 @@
+.offer{
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: -1px -1px 0px 0px var(--border-shadow-color) inset;
+    border: 1px solid var(--border-shadow-color);
+    margin-top: 13px;
+    padding: 13px 21px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.frame{
+    display: flex;
+    gap: 12px;
+}
+
+.avatar {
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+}
+
+.input {
+  color: var(--secondary-color);
+  width: 100%;
+}
+
+.vectors {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 36px;
+}
+
+.vector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.color{
+    border-left: 1px solid var(--border-shadow-color);
+    padding-left: 10px;
+}
+
+.color img{
+    width: 20px;
+    height: 20px;
+}

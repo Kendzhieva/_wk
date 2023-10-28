@@ -2,6 +2,7 @@ import { ChatBlock } from 'components';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getAllChats } from 'redux/features/chatSlice';
+import styles from './Chats.module.css'
 
 function Chats() {
   const { list } = useSelector(state => state.chat)
@@ -14,7 +15,7 @@ function Chats() {
   console.log(list);
 
   return (
-    <div>
+    <div className={styles.wrapper}>
       {
         list.map((chat) => {
           return <ChatBlock chat={chat} />
