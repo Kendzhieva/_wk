@@ -1,11 +1,11 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import styles from './PostComments.module.css'
+import { addPostComment, getPostComments } from 'redux/features/postSlice';
+import { useDispatch } from 'react-redux';
 
 //icons
 import { BsEmojiSmile } from 'react-icons/bs'
 import { IoSend } from 'react-icons/io5'
-import { useDispatch } from 'react-redux';
-import { addPostComment, getPostComments } from 'redux/features/postSlice';
 
 
 

@@ -1,8 +1,19 @@
+import { useSelector } from 'react-redux';
 import styles from './Subscribers.module.css';
 import UserDefaultAvatar from 'assets/image/user/userDefaultAvatar.png'
 
 
 function Subscribers() {
+
+  const { group } = useSelector((state) => state.groups)
+
+  const limitString = (string, limit) => {
+    if (string && string.length > limit) {
+      return `${string.slice(0, limit)}...`;
+    } else {
+      return string;
+    }
+  }
   return (
     <>
       <div className={styles.friends}>
@@ -23,62 +34,26 @@ function Subscribers() {
 
 
       <div className={styles.subscribers}>
-        <h4 className={styles.title}>Подписчики <span>29 289</span></h4>
+        <h4 className={styles.title}>
+          Подписчики
+          {group && group.members && (
+            <span>{group.members.length}</span>
+          )}
+        </h4>
 
         <ul className={styles.subscribers_menu}>
-          <li className={styles.item}>
-            <img
-              className={styles.avatar}
-              src={UserDefaultAvatar}
-              alt='AVATAR'
-            />
-            <p className={styles.name}>Elvis</p>
-          </li>
+          {group.members.map(member => (
+            <li className={styles.item}>
+              <img
+                className={styles.avatar}
+                src={UserDefaultAvatar}
+                alt='AVATAR'
+              />
+              <p className={styles.name}>{limitString(member.userId, 6)}</p>
+            </li>
+          ))}
 
-          <li className={styles.item}>
-            <img
-              className={styles.avatar}
-              src={UserDefaultAvatar}
-              alt='AVATAR'
-            />
-            <p className={styles.name}>Sara</p>
-          </li>
 
-          <li className={styles.item}>
-            <img
-              className={styles.avatar}
-              src={UserDefaultAvatar}
-              alt='AVATAR'
-            />
-            <p className={styles.name}>Daniel</p>
-          </li>
-
-          <li className={styles.item}>
-            <img
-              className={styles.avatar}
-              src={UserDefaultAvatar}
-              alt='AVATAR'
-            />
-            <p className={styles.name}>Lucas</p>
-          </li>
-
-          <li className={styles.item}>
-            <img
-              className={styles.avatar}
-              src={UserDefaultAvatar}
-              alt='AVATAR'
-            />
-            <p className={styles.name}>Taylor</p>
-          </li>
-
-          <li className={styles.item}>
-            <img
-              className={styles.avatar}
-              src={UserDefaultAvatar}
-              alt='AVATAR'
-            />
-            <p className={styles.name}>Lucas</p>
-          </li>
         </ul>
       </div>
     </>

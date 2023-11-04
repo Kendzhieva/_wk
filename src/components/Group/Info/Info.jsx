@@ -5,13 +5,16 @@ import { RxTextAlignLeft } from 'react-icons/rx';
 import { FaEarthEurope } from 'react-icons/fa6';
 import { HiOutlinePhone } from 'react-icons/hi';
 import { PiMapPinFill } from 'react-icons/pi';
+import { useSelector } from 'react-redux';
 
 function Info() {
+  const { group } = useSelector((state) => state.groups)
+
   return (
     <div className={styles.group_info}>
       <div className={styles.header}>
-        <h2 className={styles.header_title}>Adobe Illustrator</h2>
-        <p className={styles.header_text}>Программное обеспечение</p>
+        <h2 className={styles.header_title}>{group.title}</h2>
+        <p className={styles.header_text}>{group.description}</p>
 
       </div>
 

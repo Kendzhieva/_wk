@@ -1,0 +1,34 @@
+.ChatMsgContainer{
+    height: 86%;
+}
+
+.msg{
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.content{
+    background-color: var(--primary-color);
+    padding: 10px;
+    border-radius: 5px 5px 5px 0;
+    max-width: 50%;
+    word-break: break-all;
+}
+
+.name{
+    font-size: 15px;
+    color: #fff;
+}
+
+.text{
+    margin-top: 5px;
+    color: #fff;
+    font-size: 13px;
+}

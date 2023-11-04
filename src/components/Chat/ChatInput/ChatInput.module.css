@@ -1,0 +1,37 @@
+.chatInput{
+    border-top: 1px solid var(--border-shadow-color);
+    padding: 10px;
+}
+
+.wrapper{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .comment_content {
+      width: 90%;
+      resize: none;
+      background-color: transparent;
+      border: 1px solid var(--border-shadow-color);
+      border-radius: 8px;
+      margin: 5px 10px;
+      color: var(--secondary-color);
+    padding: 10px;
+    }
+  
+  
+    .btn{
+      padding: 6px;
+      border-radius: 5px;
+      background-color: var(--primary-color);
+      color: #fff;
+      display: grid;
+      place-items: center;
+    }
+    
+    .btn:hover {
+      background-color: var(--secondary-color);
+    }
+  
+  

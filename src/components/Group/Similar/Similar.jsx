@@ -1,9 +1,19 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import UserDefaultAvatar from 'assets/image/user/userDefaultAvatar.png'
 import styles from './Similar.module.css'
+import { useDispatch, useSelector } from 'react-redux';
+import { getAllGroups } from 'redux/features/groupsSlice';
 
 
 function Similar() {
+
+  const dispatch = useDispatch()
+  const { groups } = useSelector(state => state.groups)
+
+  useEffect(() => {
+    dispatch(getAllGroups(3))
+  }, [])
+
   return (
     <div className={styles.similar}>
 
@@ -14,38 +24,21 @@ function Similar() {
 
       <div className={styles.groups}>
 
-        <div className={styles.group}>
-          <img
-            src={UserDefaultAvatar}
-            alt='AVATAR'
-            className={styles.avatar}
-          />
-          <p className={styles.name}>Vkontakte</p>
-          <p className={styles.type}>Образование</p>
-          <button className={styles.button}>Подписаться</button>
-        </div>
+        {
+          groups.map(group => (
+            <div className={styles.group}>
+              <img
+                src={UserDefaultAvatar}
+                alt='AVATAR'
+                className={styles.avatar}
+              />
+              <p className={styles.name}>{group.title}</p>
+              <p className={styles.type}>{group.description}</p>
+              <button className={styles.button}>Подписаться</button>
+            </div>
+          ))
+        }
 
-        <div className={styles.group}>
-          <img
-            src={UserDefaultAvatar}
-            alt='AVATAR'
-            className={styles.avatar}
-          />
-          <p className={styles.name}>Vkontakte</p>
-          <p className={styles.type}>Образование</p>
-          <button className={styles.button}>Подписаться</button>
-        </div>
-
-        <div className={styles.group}>
-          <img
-            src={UserDefaultAvatar}
-            alt='AVATAR'
-            className={styles.avatar}
-          />
-          <p className={styles.name}>Vkontakte</p>
-          <p className={styles.type}>Образование</p>
-          <button className={styles.button}>Подписаться</button>
-        </div>
 
 
       </div>

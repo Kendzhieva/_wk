@@ -71,10 +71,42 @@ export const getGroupInfo = createAsyncThunk('groups/get/info', async (groupId, 
     }
 })
 
-export const getAllGroups = createAsyncThunk('groups/get/all', async (_, { rejectWithValue }) => {
+export const getAllGroups = createAsyncThunk('groups/get/all', async (limit, { rejectWithValue }) => {
     try {
 
-        const response = await instance.get(`groups`)
+        const response = await instance.get(`groups${limit ? `?limit=${limit}` : ''}`)
+
+        return response.data
+
+    } catch (err) {
+        return rejectWithValue(err.response.data || err.message)
+    }
+})
+
+export const joinGroup = createAsyncThunk('groups/join', async (groupId, { rejectWithValue }) => {
+    try {
+        const accessToken = localStorage.getItem("accessToken")
+        const response = await instance.patch(`groups/join/${groupId}`, {}, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
+
+        return response.data
+
+    } catch (err) {
+        return rejectWithValue(err.response.data || err.message)
+    }
+})
+
+export const leaveGroup = createAsyncThunk('groups/leave', async (groupId, { rejectWithValue }) => {
+    try {
+        const accessToken = localStorage.getItem("accessToken")
+        const response = await instance.patch(`groups/leave/${groupId}`, {}, {
+            headers: {
+                Authorization: `Bearer ${accessToken}`
+            }
+        })
 
         return response.data
 
@@ -88,7 +120,8 @@ const groupsSlice = createSlice({
     initialState: {
         status: 'idle',
         error: null,
-        groups: []
+        groups: [],
+        group: {}
     },
     reducers: {},
     extraReducers: (builder) => {
@@ -96,6 +129,11 @@ const groupsSlice = createSlice({
             state.status = 'success'
             state.error = null
             state.groups = action.payload
+        });
+        builder.addCase(getGroupInfo.fulfilled, (state, action) => {
+            state.status = 'success'
+            state.error = null
+            state.group = action.payload
         })
     }
 })
